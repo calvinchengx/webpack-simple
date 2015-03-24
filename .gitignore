@@ -1,0 +1,13 @@
+build/*
+dist/*
+!dist/_blank.html
+bower_components/*
+node_modules/*
+!build/_blank.html
+js/.module-cache/*
+server/static/build/*
+server/static/bower_components/*
+server/static/node_modules/*
+server/static/!build/_blank.html
+server/static/js/.module-cache/*
+*~
