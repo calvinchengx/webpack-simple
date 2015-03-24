@@ -1,10 +1,13 @@
 'use strict';
 console.log('Load base webpack.config.js');
 
+var webpack = require('webpack');
 var config = {
   entry: {
     app: [
-      './entry.js'
+      'webpack-dev-server/client?/',
+      'webpack/hot/dev-server',
+      './entry.jsx'
     ]
   },
   output: {
@@ -19,7 +22,10 @@ var config = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
 
 module.exports = config;
