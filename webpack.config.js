@@ -7,7 +7,7 @@ var config = {
     app: [
       'webpack-dev-server/client?/',
       'webpack/hot/dev-server',
-      './entry.jsx'
+      './client.jsx'
     ]
   },
   output: {
