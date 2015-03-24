@@ -16,7 +16,7 @@
   "scripts": {
     "start": "npm run backend-node & npm run dev-server",
     "start2": "npm run backend-python & npm run dev-server",
-    "dev-server": "webpack-dev-server 'webpack-dev-server/client?/' webpack/hot/dev-server ./entry --hot --host 0.0.0.0 --content-base-target 'http://127.0.0.1:5000'",
+    "dev-server": "webpack-dev-server 'webpack-dev-server/client?/' webpack/hot/dev-server --hot --host 0.0.0.0 --content-base-target 'http://127.0.0.1:5000'",
     "backend-python": "python -m SimpleHTTPServer 5000",
     "backend-node": "node server.js"
   },
