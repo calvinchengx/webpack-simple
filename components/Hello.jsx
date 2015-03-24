@@ -4,7 +4,7 @@ var React = require('react');
 
 var Hello = React.createClass({
   render: function() {
-    return <div>Hello React</div>
+    return <div>Hello React, ssr and csr with react router!</div>
   }
 });
 

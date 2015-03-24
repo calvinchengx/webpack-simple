@@ -2,6 +2,8 @@
 
 var React = require('react');
 var Hello = require('./Hello');
+var Router = require('react-router');
+var routes = require('../routes');
 
 var Html = React.createClass({
   render: function() {
@@ -20,9 +22,11 @@ var Html = React.createClass({
 })
 
 var ServerRender = function(req, res, next) { 
-  var markup = React.renderToString(<Hello />);
-  var html = React.renderToStaticMarkup(<Html markup={markup} />);
-  res.send('<!DOCTYPE html>' + html);
+  Router.run(routes, req.url, function(Handler, state) {
+    var markup = React.renderToString(<Handler />);
+    var html = React.renderToStaticMarkup(<Html markup={markup} />);
+    res.send('<!DOCTYPE html>' + html);
+  });
 }
 
 module.exports = ServerRender;
