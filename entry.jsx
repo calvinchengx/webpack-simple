@@ -1,7 +1,4 @@
 /* entry.js */
-document.write('<h1>Hello World!</h1>');
-document.write('<div id="wrap"></div>');
-
 var React = require('react');
 
 var Hello = React.createClass({
@@ -10,4 +7,4 @@ var Hello = React.createClass({
   }
 });
 
-React.render(<Hello />, document.getElementById('wrap'));;
+React.render(<Hello />, document.body);
