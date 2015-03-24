@@ -9,7 +9,7 @@ var serverRender = require('./components/ServerRender');
 
 app.use(morgan('dev'));  // logger middleware to stdout
 
-app.get('/', serverRender);
+app.get('*', serverRender);
 
 app.listen(5000, function() {
   var host = this.address().address;
