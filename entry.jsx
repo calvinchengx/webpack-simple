@@ -1,10 +1,6 @@
-/* entry.js */
-var React = require('react');
+'use strict';
 
-var Hello = React.createClass({
-  render: function() {
-    return <div>Hello React</div>
-  }
-});
+var React = require('react');
+var Hello = require('./components/Hello');
 
 React.render(<Hello />, document.body);
