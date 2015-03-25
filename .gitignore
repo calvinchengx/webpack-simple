@@ -1,6 +1,8 @@
-build/*
-dist/*
-!dist/_blank.html
+public/*
+!public/index.html
+!public/css/index.html
+!public/js/index.html
+!public/img/index.html
 bower_components/*
 node_modules/*
 !build/_blank.html
