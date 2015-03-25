@@ -1,0 +1,17 @@
+@import "node_modules/susy/sass/susy";
+
+$susy: (
+    columns: 4,  // mobile first
+    gutters: .25,
+    global-box-sizing: border-box,
+    debug: (
+        image: show,
+        color: rgba(#66b3dc, 0.25),
+        output: background,
+        toggle: top right
+    )
+);
+
+body {
+  background-color: orange;
+}
