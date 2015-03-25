@@ -18,9 +18,7 @@
   },
   "scripts": {
     "start": "npm run backend-node & npm run dev-server",
-    "start2": "npm run backend-python & npm run dev-server",
     "dev-server": "webpack-dev-server --host 0.0.0.0 --content-base-target 'http://127.0.0.1:5000' --colors",
-    "backend-python": "python -m SimpleHTTPServer 5000",
     "backend-node": "nodemon -e js,jsx server.js"
   },
   "author": "",

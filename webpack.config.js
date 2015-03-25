@@ -13,7 +13,7 @@ var config = {
   output: {
     path: __dirname,
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/js/'
   },
   module: {
     loaders: [

@@ -14,7 +14,7 @@ var Html = React.createClass({
         <body>
           <div id="wrap" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
         </body>
-        <script src="./bundle.js"></script>
+        <script src="/js/bundle.js"></script>
       </html> 
     )
   }
