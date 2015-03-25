@@ -9,6 +9,7 @@ var Html = React.createClass({
     return (
       <html>
         <head>
+          <link rel="stylesheet" type="text/css" href="/css/styles.css" />
           <title>HelloReact</title>
         </head>
         <body>
