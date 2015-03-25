@@ -11,7 +11,7 @@ var config = {
     ]
   },
   output: {
-    path: __dirname,
+    path: __dirname + '/public/js',
     filename: 'bundle.js',
     publicPath: '/js/'
   },
