@@ -1,31 +1,13 @@
 'use strict';
-console.log('Load base webpack.config.js');
+console.log('Add in development configs to common webpack config');
+
+var config = require('./webpack.common.config.js');
+
+config.entry.app.push('webpack-dev-server/client?/');
+config.entry.app.push('webpack/hot/dev-server');
 
 var webpack = require('webpack');
-var config = {
-  entry: {
-    app: [
-      'webpack-dev-server/client?/',
-      'webpack/hot/dev-server',
-      './client.jsx'
-    ]
-  },
-  output: {
-    path: __dirname + '/public/js',
-    filename: 'bundle.js',
-    publicPath: '/js/'
-  },
-  module: {
-    loaders: [
-      { test: /\.jsx$/, loader: 'jsx-loader?insertPragma=React.DOM&harmony' }
-    ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
-};
+var hmrPlugin = new webpack.HotModuleReplacementPlugin();
+config.plugins.push(hmrPlugin);
 
 module.exports = config;
