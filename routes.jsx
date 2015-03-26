@@ -26,7 +26,7 @@ var routes = (
     <DefaultRoute name="home" handler={Home} />
     <Route name="about" path="/about" handler={About} />
     <Route name="pages" path="/pages" handler={Pages} />
-    <Route name="page" path="/page/:pageTitle" handler={Page} />
+    <Route name="page" path="/page/:title" handler={Page} />
     <Route name="contact" path="/contact" handler={Contact} />
 
     <Route name="dashboard" path="/dashboard" handler={Dashboard}>

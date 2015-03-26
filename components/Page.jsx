@@ -10,7 +10,7 @@ var Page = React.createClass({
     router: React.PropTypes.func
   },
   render: function() {
-    var urlParam= this.context.router.getCurrentParams().urlParam;
+    var title= this.context.router.getCurrentParams().title;
     // write a function that grabs content based on title and then set content below.
     var content = this.getContent();
     return (
