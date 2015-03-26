@@ -16,6 +16,10 @@ var Page = require('./components/Page');
 var Contact = require('./components/Contact');
 var NotFound = require('./components/NotFound');
 
+var Dashboard = require('./components/Dashboard');
+var DashboardItem = require('./components/DashboardItem');
+var DashboardStats = require('./components/DashboardStats');
+
 /* routes */
 var routes = (
   <Route name="app" path="/" handler={App}>
@@ -24,6 +28,12 @@ var routes = (
     <Route name="pages" path="/pages" handler={Pages} />
     <Route name="page" path="/page/:pageTitle" handler={Page} />
     <Route name="contact" path="/contact" handler={Contact} />
+
+    <Route name="dashboard" path="/dashboard" handler={Dashboard}>
+      <Route name="dashboardItem" path="/dashboard/:item" handler={DashboardItem} />
+      <DefaultRoute name="dashboardStats" handler={DashboardStats} />
+    </Route>
+
     <NotFoundRoute name="notfound" handler={NotFound} />
   </Route>
 );
