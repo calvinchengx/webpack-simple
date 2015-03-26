@@ -4,12 +4,26 @@ var fs = require('fs');
 var path = require('path');
 var marked = require('marked');
 var R = require('ramda');
-var mdDir = path.resolve(__dirname, '..', 'markdown');
-var htmlDir = path.resolve(__dirname, '..', 'html');
+var mdDir = path.resolve(__dirname, 'markdown');
+var htmlDir = path.resolve(__dirname, 'html');
+var content = require('./index');
 
-var setFilePath = function(filename) {
- return path.resolve(mdDir, filename);
+var getFilePaths = function(content) {
+  var fileTypes = R.keys(content);  // ['pages', 'posts']
+  var filePaths = [];
+  for (var i=0; i < fileTypes.length; i++) {
+    var contentByType = content[fileTypes[i]];
+    //console.log(contentByType);
+    for (var j=0; j < contentByType.length; j++) {
+      var fileType = fileTypes[i];
+      var name = contentByType[j].md;
+      filePaths.push(path.resolve(mdDir, fileType, name));
+    }
+  }
+  return filePaths;
 };
+
+var pathsFromContent = getFilePaths(content);
 
 var writeHtml = function (pathToFile, markedData) {
   fs.writeFile(pathToFile, markedData, function(err) {
@@ -35,11 +49,6 @@ var readMarkdown = function (pathToFile) {
   });
 };
 
-// read markdown files in markdown directory
-// and apply readMarkdown method on each file
-// writing out as html into html directory
-fs.readdir(mdDir, function(err, files) {
-  var filesArray = R.values(files);  
-  var filesArrayWithPath = R.map(setFilePath, filesArray);
-  R.map(readMarkdown, filesArrayWithPath);
-});
+// check each path in pathsFromContent, if the file actually
+// exists on our filesystem, we will read and write it out as html.
+R.map(readMarkdown, pathsFromContent);
