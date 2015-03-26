@@ -17,7 +17,7 @@ var config = {
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: 'jsx-loader?insertPragma=React.DOM&harmony' },
+      { test: /\.jsx$/, loaders: ['jsx-loader?insertPragma=React.DOM&harmony'] },
       { test: /\.scss$/, loader: 'style!css!sass' }
     ]
   },

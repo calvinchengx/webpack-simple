@@ -17,6 +17,8 @@ It is worth noting that we use neither the `--inline` option nor the `<script sr
 Implemented Features and TODOs
 =================================
 
+Here's a list of features I have implemented and I am intending to implement
+
 - [x] webpack, web-dev-server and webpack hot module reload (HMR)
 - [x] reactjs, client-side rendered (CSR)
 - [x] nodejs express backend and node-jsx for isomorphic server-side rendered (SSR) reactjs
@@ -24,10 +26,16 @@ Implemented Features and TODOs
 - [x] express static middleware for serving static files from our backend, so avoiding flash-of-unstyled-content (FOUC)
 - [x] nodemon to reload nodejs express server on backend-related file changes
 - [x] susy sass framework, using sassc (libsass) compiler, sass-loader, css-loader and style-loader
-- [ ] react-hot-loader 
+- [x] react-hot-loader 
 - [ ] static site generation capability with markdown and markdown-to-html compiler
 - [ ] example nginx config, nodejs systemd service files
+- [ ] nodejs express logging SSR errors with morgan
+- [ ] unit testing
+- [ ] blackbox testing
 - [ ] using web tokens for logging in
 - [ ] flux code architecture for implementing new features
 - [ ] superagent and CORS 
+- [ ] forms, form validation with formsy
 - [ ] relay and graphql
+- [ ] project site design
+- [ ] responsive layout with susy 
