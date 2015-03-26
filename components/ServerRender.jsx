@@ -3,6 +3,7 @@
 var React = require('react');
 var Router = require('react-router');
 var routes = require('../routes');
+var DocumentTitle = require('react-document-title');
 
 var Html = React.createClass({
   render: function() {
@@ -10,7 +11,7 @@ var Html = React.createClass({
       <html>
         <head>
           <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-          <title>HelloReact</title>
+          <title>{this.props.title}</title>
         </head>
         <body>
           <div id="wrap" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
@@ -23,8 +24,9 @@ var Html = React.createClass({
 
 var ServerRender = function(req, res, next) { 
   Router.run(routes, req.url, function(Handler, state) {
+    var title = DocumentTitle.rewind();
     var markup = React.renderToString(<Handler />);
-    var html = React.renderToStaticMarkup(<Html markup={markup} />);
+    var html = React.renderToStaticMarkup(<Html title={title} markup={markup} />);
     res.send('<!DOCTYPE html>' + html);
   });
 }
