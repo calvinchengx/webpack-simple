@@ -5,12 +5,15 @@ var app = express();
 var morgan = require('morgan');
 
 require('node-jsx').install({ extension: '.jsx' });
-var serverRender = require('./components/ServerRender');
+var serverRender = require('../components/ServerRender');
 
 app.use(morgan('dev'));  // logger middleware to stdout
 
-app.use('/css', express.static(__dirname + '/public/css'));
-app.use('/js', express.static(__dirname + '/public/js'));
+var path = require('path');
+var cssPath = path.resolve(__dirname, '..', 'public/css');
+var jsPath = path.resolve(__dirname, '..', 'public/js');
+app.use('/css', express.static(cssPath));
+app.use('/js', express.static(jsPath));
 app.get('/*', serverRender);
 
 app.listen(5000, function() {

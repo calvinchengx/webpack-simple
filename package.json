@@ -24,7 +24,7 @@
   "scripts": {
     "start": "npm run backend-node & npm run dev-server",
     "dev-server": "npm run sass-dev & webpack-dev-server --host 0.0.0.0 --content-base-target 'http://127.0.0.1:5000' --colors",
-    "backend-node": "nodemon -e js,jsx server.js",
+    "backend-node": "nodemon -e js,jsx server",
     "build": "webpack -p --config webpack.prod.config.js",
     "sass-dev": "sassc sass/styles.scss public/css/styles.css",
     "sass-prod": "sassc --output-style compressed ./sass/styles.scss ./public/css/styles.css"
