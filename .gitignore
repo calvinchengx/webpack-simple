@@ -3,6 +3,8 @@ public/*
 !public/css/index.html
 !public/js/index.html
 !public/img/index.html
+html/*
+!html/_blank.html
 bower_components/*
 node_modules/*
 !build/_blank.html
