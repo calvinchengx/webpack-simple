@@ -3,7 +3,7 @@
 var React = require('react');
 
 var Page = React.createClass({
-  getContent: function() {
+  getContent: function(title) {
     return 'some content';
   },
   contextTypes: {
@@ -12,7 +12,7 @@ var Page = React.createClass({
   render: function() {
     var title= this.context.router.getCurrentParams().title;
     // write a function that grabs content based on title and then set content below.
-    var content = this.getContent();
+    var content = this.getContent(title);
     return (
       <div>
         <h1>{urlParam}</h1>

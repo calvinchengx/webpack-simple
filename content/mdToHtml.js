@@ -4,26 +4,8 @@ var fs = require('fs');
 var path = require('path');
 var marked = require('marked');
 var R = require('ramda');
-var mdDir = path.resolve(__dirname, 'markdown');
 var htmlDir = path.resolve(__dirname, 'html');
-var content = require('./index');
-
-var getFilePaths = function(content) {
-  var fileTypes = R.keys(content);  // ['pages', 'posts']
-  var filePaths = [];
-  for (var i=0; i < fileTypes.length; i++) {
-    var contentByType = content[fileTypes[i]];
-    //console.log(contentByType);
-    for (var j=0; j < contentByType.length; j++) {
-      var fileType = fileTypes[i];
-      var name = contentByType[j].md;
-      filePaths.push(path.resolve(mdDir, fileType, name));
-    }
-  }
-  return filePaths;
-};
-
-var pathsFromContent = getFilePaths(content);
+var contentUtils = require('./utils');
 
 var writeHtml = function (pathToFile, markedData) {
   fs.writeFile(pathToFile, markedData, function(err) {
@@ -42,13 +24,18 @@ var readMarkdown = function (pathToFile) {
       // rename the .md file as .html and write it out 
       // into the html directory
       var filename = path.basename(pathToFile, path.extname(pathToFile)) + '.html';
-      writeHtml(path.resolve(htmlDir, filename), marked(data));
+      var fileType = path.dirname(pathToFile).split(path.sep).pop();
+      var pathToWriteFile = path.resolve(htmlDir, fileType, filename);
+      writeHtml(pathToWriteFile, marked(data));
     } else {
       console.log(pathToFile + ' is not a markdown file. Not processed.');
     }
   });
 };
 
-// check each path in pathsFromContent, if the file actually
-// exists on our filesystem, we will read and write it out as html.
-R.map(readMarkdown, pathsFromContent);
+console.log('Valid content:');
+console.log(contentUtils.contentPathsValid);
+console.log('Invalid content:');
+console.log(contentUtils.contentPathsInvalid);
+// read each valid content path and implicitly write into the corresponding html directory
+R.map(readMarkdown, contentUtils.contentPathsValid);
