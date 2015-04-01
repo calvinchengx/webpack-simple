@@ -1,14 +1,9 @@
 'use strict';
 console.log('Load common webpack config');
 
-var path = require('path');
-var pathNodeModules = path.resolve(__dirname, 'node_modules');
-
 var config = {
   entry: {
-    app: [
-      './client.jsx'
-    ]
+    app: []
   },
   output: {
     path: __dirname + '/public/js',

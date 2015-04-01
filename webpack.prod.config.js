@@ -2,6 +2,7 @@
 console.log('Add in production configs to common webpack config');
 
 var config = require('./webpack.common.config.js');
+config.entry.app.push('./client.jsx');
 
 // uglify js plugin
 var webpack = require('webpack');
