@@ -15,6 +15,12 @@ var paths = {
       md: 'welcome.md',
       published: '2015-01-01',
       preview: 'Hello there'
+    },
+    about: {
+      title: 'About',
+      md: 'about.md',
+      published: '2015-01-02',
+      preview: 'This is all about craftsmanship'
     }
   }
 };

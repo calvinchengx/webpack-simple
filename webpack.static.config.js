@@ -5,4 +5,6 @@ var config = require('./webpack.common.config.js');
 config.target = 'node';     // webpack's target attribute is 'web' by default.
                             // we specify 'node' in order to generate our static files
 
+config.entry.app.push('./static.jsx');
+
 module.exports = config;
