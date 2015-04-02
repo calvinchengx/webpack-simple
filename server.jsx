@@ -2,7 +2,7 @@
 
 var React = require('react');
 var Router = require('react-router');
-var routes = require('../routes');
+var routes = require('./routes');
 var DocumentTitle = require('react-document-title');
 
 var Html = React.createClass({

@@ -5,7 +5,7 @@ var app = express();
 var morgan = require('morgan');
 
 require('node-jsx').install({ extension: '.jsx' });
-var serverRender = require('../components/ServerRender');
+var serverRender = require('../server');
 
 app.use(morgan('dev'));  // logger middleware to stdout
 
