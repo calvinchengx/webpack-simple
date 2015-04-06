@@ -17,6 +17,7 @@
   "devDependencies": {
     "compression-webpack-plugin": "^0.1.2",
     "css-loader": "^0.9.1",
+    "jest-cli": "^0.4.0",
     "jsx-loader": "^0.12.2",
     "marked": "^0.3.3",
     "node-sass": "^3.0.0-pre",
@@ -34,7 +35,8 @@
     "build": "webpack -p --config webpack.prod.config.js",
     "build-static": "webpack -p --config webpack.static.config.js",
     "sass-dev": "sassc sass/styles.scss public/css/styles.css",
-    "sass-prod": "sassc --output-style compressed ./sass/styles.scss ./public/css/styles.css"
+    "sass-prod": "sassc --output-style compressed ./sass/styles.scss ./public/css/styles.css",
+    "test": "jest"
   },
   "author": "Calvin Cheng",
   "license": "MIT"

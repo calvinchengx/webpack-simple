@@ -1,0 +1,25 @@
+{
+  "session_name": "JS session",
+  "windows": [
+    {
+      "window_name": "JS IDE",
+      "_comment": "specify layout using tmux list-windows",
+      "shell_command_before": "workon webpack-simple",
+      "layout": "f841,201x47,0,0{135x47,0,0,1,65x47,136,0[65x23,136,0,2,65x23,136,24,3]}",
+      "panes": [
+        {
+          "shell_command": [
+            "vim"
+          ],
+          "focus": true
+        },
+        {
+          "shell_command": [
+            "node"
+          ]
+        },
+        "pane"
+      ]
+    }
+  ]
+}
