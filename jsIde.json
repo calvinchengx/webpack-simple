@@ -18,7 +18,11 @@
             "node"
           ]
         },
-        "pane"
+        {
+          "shell_command": [
+            "npm start"
+          ]
+        }
       ]
     }
   ]
