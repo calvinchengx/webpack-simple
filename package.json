@@ -31,13 +31,15 @@
     "webpack-dev-server": "^1.7.0"
   },
   "scripts": {
-    "start": "webpack --config webpack.server.config.js & npm run backend-node & npm run dev-server",
-    "dev-server": "npm run sass-dev & webpack-dev-server --host 0.0.0.0 --content-base-target 'http://127.0.0.1:5000' --colors",
-    "backend-node": "nodemon -e js,jsx server",
+    "start": "npm run dev-server & npm run dev-client",
+    "dev-client": "npm run dev-sass & webpack-dev-server --host 0.0.0.0 --content-base-target 'http://127.0.0.1:5000' --colors",
+    "dev-server": "webpack --config webpack.server.config.js & nodemon -e js,jsx server",
+    "dev-sass": "sassc sass/styles.scss public/css/styles.css",
+
     "build": "webpack -p --config webpack.prod.config.js",
     "build-static": "webpack -p --config webpack.static.config.js",
-    "sass-dev": "sassc sass/styles.scss public/css/styles.css",
-    "sass-prod": "sassc --output-style compressed ./sass/styles.scss ./public/css/styles.css",
+    "build-sass": "sassc --output-style compressed ./sass/styles.scss ./public/css/styles.css",
+
     "test": "jest"
   },
   "author": "Calvin Cheng",
