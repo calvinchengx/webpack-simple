@@ -6,14 +6,16 @@ var config = {
     app: []
   },
   output: {
-    path: __dirname + '/public/js',
+    path: require('path').resolve(__dirname, 'public', 'js'),
     filename: 'bundle.js',
     publicPath: '/js/'
   },
   module: {
     loaders: [
       { test: /\.jsx$/, loaders: ['jsx-loader?insertPragma=React.DOM&harmony'] },
-      { test: /\.scss$/, loader: 'style!css!sass' }
+      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.html$/, loader: 'html' },
+      { test: /\.md$/, loader: 'html!markdown' }
     ]
   },
   resolve: {

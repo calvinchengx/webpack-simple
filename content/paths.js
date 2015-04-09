@@ -25,11 +25,16 @@ var paths = {
   }
 };
 
-module.exports = { 
+module.exports = {
   allPaths: function() {
     return paths;
   },
   allPosts: function() {
     return paths.posts;
+  },
+  postForPath: function(path) {
+    var directoryRequire = require.context('./markdown/posts', false, /^\.\/.*\.md$/);
+    var retrieve = './' + paths.posts[path].md;
+    return directoryRequire(retrieve);
   }
 };
