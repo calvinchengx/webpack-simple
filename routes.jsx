@@ -16,6 +16,8 @@ var Page = require('./components/Page');
 var Contact = require('./components/Contact');
 var NotFound = require('./components/NotFound');
 
+var Post = require('./components/Post');
+
 var Dashboard = require('./components/Dashboard');
 var DashboardItem = require('./components/DashboardItem');
 var DashboardStats = require('./components/DashboardStats');
@@ -28,6 +30,8 @@ var routes = (
     <Route name="pages" path="/pages" handler={Pages} />
     <Route name="page" path="/page/:title" handler={Page} />
     <Route name="contact" path="/contact" handler={Contact} />
+
+    <Route name="post" path="/blog/:post" handler={Post} />
 
     <Route name="dashboard" path="/dashboard" handler={Dashboard}>
       <Route name="dashboardItem" path="/dashboard/:item" handler={DashboardItem} />
