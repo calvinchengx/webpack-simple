@@ -17,18 +17,18 @@ var Html = React.createClass({
           <div id="wrap" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
         </body>
         <script src="/js/bundle.js"></script>
-      </html> 
-    )
+      </html>
+    );
   }
-})
+});
 
-var ServerRender = function(req, res, next) { 
+var ServerRender = function(req, res, next) {
   Router.run(routes, req.url, function(Handler, state) {
     var title = DocumentTitle.rewind();
     var markup = React.renderToString(<Handler />);
     var html = React.renderToStaticMarkup(<Html title={title} markup={markup} />);
     res.send('<!DOCTYPE html>' + html);
   });
-}
+};
 
 module.exports = ServerRender;

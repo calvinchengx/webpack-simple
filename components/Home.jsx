@@ -11,7 +11,7 @@ var Home = React.createClass({
       <DocumentTitle title='Home'>
         <div>Hello React, ssr and csr with react router!</div>
       </DocumentTitle>
-    )
+    );
   }
 });
 
