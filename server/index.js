@@ -4,8 +4,9 @@ var express = require('express');
 var app = express();
 var morgan = require('morgan');
 
-require('node-jsx').install({ extension: '.jsx' });
-var serverRender = require('../server');
+//require('node-jsx').install({ extension: '.jsx' });
+//var serverRender = require('../server');
+var server = require('../public/js/server.generated.js');
 
 app.use(morgan('dev'));  // logger middleware to stdout
 
@@ -22,7 +23,8 @@ app.use('/js', express.static(jsPath));
 var blogPath = path.resolve(__dirname, '..', 'content/html');
 app.use('/', express.static(blogPath, {'extensions': ['html']}));
 
-app.get('/*', serverRender);
+//app.get('/*', serverRender);
+app.get('/*', server);
 
 app.listen(5000, function() {
   var host = this.address().address;

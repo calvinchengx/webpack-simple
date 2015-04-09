@@ -17,25 +17,25 @@ var Html = React.createClass({
           <div id="wrap" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
         </body>
         <script src="/js/bundle.js"></script>
-      </html> 
-    )
+      </html>
+    );
   }
-})
+});
 
-// given a url, our router will decide which Handler to use in the callback 
-// the corresponding markup is then created and pass on to the html component 
+// given a url, our router will decide which Handler to use in the callback
+// the corresponding markup is then created and pass on to the html component
 // and rendered as static html data to be returned.
-// This StaticRender function will be used by our static page builder to provide the 
+// This StaticRender function will be used by our static page builder to provide the
 // html data that will be written to disk.
 var StaticRender = function(url) {
   var html;
   var title = DocumentTitle.rewind();
-  Router.run (routes, url, function (Handler, state) {
+  Router.run(routes, url, function(Handler, state) {
     var markup = React.renderToString(<Handler />);
     html = React.renderToStaticMarkup(<Html title={title} markup={markup} />);
   });
   console.log(html);
   return html;
-}
+};
 
 module.exports = StaticRender;
